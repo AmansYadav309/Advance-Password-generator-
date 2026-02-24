@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 const PasswordBox = () => {
   return (
     <div
-      className="Psa_box h-[63px]
+      className=" h-[63px]
          bg-gray-900 p-4 rounded-xl 
          flex
          justify-between
@@ -19,7 +19,9 @@ const PasswordBox = () => {
     >
         <span className="text-emerald-400  text-lg  font-semibold tracking-wider font-sans ">  k8#LpS29!vXq </span>
        <Button variant="contained" className="rounded-xl "   
-        startIcon={<ContentCopyIcon />}>
+        startIcon={<ContentCopyIcon />}  style={{
+          background:"#10b981",
+        }}>
           Copy
         </Button>
     </div>
