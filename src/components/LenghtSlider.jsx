@@ -6,9 +6,7 @@ function valuetext(value) {
 }
 
 
-const LengthSlider = () => {
-  const [ length , setLength]  = useState(8);
-
+const LengthSlider = ({length , setLength }) => {
 
   const updateInput = (e) => { 
     const value = e.target.value

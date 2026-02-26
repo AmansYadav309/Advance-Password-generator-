@@ -1,30 +1,62 @@
-import React from "react";
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import React, { useState } from "react";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 
-import Button from '@mui/material/Button';
+const PasswordBox = ({ password }) => {
+  const [open, setOpen] = useState(false);
 
+  const copyPassword = () => {
+    navigator.clipboard.writeText(password);
+    setOpen(true);
+  };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-
-const PasswordBox = () => {
   return (
-    <div
-      className=" h-[63px]
+    <>
+      <div
+        className=" h-[63px]
          bg-gray-900 p-4 rounded-xl 
          flex
          justify-between
          items-center 
          "
-    >
-        <span className="text-emerald-400  text-lg  font-semibold tracking-wider font-sans ">  k8#LpS29!vXq </span>
-       <Button variant="contained" className="rounded-xl "   
-        startIcon={<ContentCopyIcon />}  style={{
-          background:"#10b981",
-        }}>
+      >
+        <span className="text-emerald-400  text-lg  font-semibold tracking-wider font-sans ">
+          {" "}
+          {password}{" "}
+        </span>
+        <Button
+          variant="contained"
+          className="rounded-xl  "
+          onClick={copyPassword}
+          startIcon={<ContentCopyIcon />}
+          style={{
+            background: "#10b981",
+          }}
+        >
           Copy
         </Button>
-    </div>
+      </div>
+
+      <Snackbar
+        open={open}
+        autoHideDuration={2000}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+      >
+        <Alert severity="success" variant="filled" onClose={handleClose}>
+          Password Copied!
+        </Alert>
+      </Snackbar>
+    </>
   );
 };
 

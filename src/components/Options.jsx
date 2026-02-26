@@ -1,7 +1,19 @@
 import React from "react";
 import Switch from "@mui/material/Switch";
 
-const Options = () => {
+const Options = ({
+    uppercase,
+    setUppercase ,
+
+    lowercase,
+    setLowercase,
+
+    number,
+    setNumber,
+
+    special,
+    setSpecial,
+}) => {
   return (
     <div className="grid  grid-cols-2 gap-4 mt-5 ">
       <div
@@ -12,7 +24,8 @@ const Options = () => {
 
         <Switch
           defaultChecked
-          
+          checked={uppercase}
+          onClick={(e)=>setUppercase(e.target.checked)}
           sx={{
             "& .MuiSwitch-switchBase.Mui-checked": {
               color: "#4ade80",
@@ -35,6 +48,8 @@ const Options = () => {
 
         <Switch
           defaultChecked
+          checked={lowercase}
+          onClick={(e)=>setLowercase(e.target.checked)}
           sx={{
             "& .MuiSwitch-switchBase.Mui-checked": {
               color: "#4ade80",
@@ -56,6 +71,8 @@ const Options = () => {
 
         <Switch
           defaultChecked
+          checked={number}
+          onClick={(e)=>setNumber(e.target.checked)}
           sx={{
             "& .MuiSwitch-switchBase.Mui-checked": {
               color: "#4ade80",
@@ -76,6 +93,8 @@ const Options = () => {
 
         <Switch
           defaultChecked
+          checked={special}
+          onClick={(e)=>setSpecial(e.target.checked)}
           sx={{
             "& .MuiSwitch-switchBase.Mui-checked": {
               color: "#4ade80",

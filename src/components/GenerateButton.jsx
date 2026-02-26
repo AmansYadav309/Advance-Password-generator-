@@ -1,11 +1,12 @@
 import React from 'react';
 import Button from "@mui/material/Button";
 
-const GenerateButton = () => {
+const GenerateButton = ({generatePassword}) => {
     return (
        <Button
 variant="contained"
 fullWidth
+onClick={generatePassword}
 style={{
 background:"#10b981",
 padding:"12px",
